@@ -13,7 +13,7 @@ public class Program {
 		Conta cc = new ContaCorrente(cristian);
 		cc.depositar(100);
 		Conta cp = new ContaPoupanca(cristian);
-		cc.transferir(100, cp);
+		cc.transferir(150, cp);
 		
 		cc.imprimirExtrato();
 		cp.imprimirExtrato();
