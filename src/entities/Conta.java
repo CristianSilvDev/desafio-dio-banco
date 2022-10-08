@@ -8,12 +8,14 @@ public abstract class Conta implements lConta {
 	protected int agencia;
 	protected int numero;
 	protected double saldo;
+	protected float cpf;
 	private Cliente cliente;
 	
 	public Conta(Cliente cliente) {
 		this.agencia = Conta.AGENCIA_PADRAO;
 		this.numero = SEQUENCIAL++;
 		this.cliente = cliente;
+		this.cpf = cpf;
 	}
 
 	
