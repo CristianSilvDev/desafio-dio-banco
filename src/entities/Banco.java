@@ -1,18 +1,29 @@
 package entities;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Banco {
-	private String nome;
-	private List<Conta> contas;
 	
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	private static ArrayList<Conta> contas = new ArrayList<>();
+
+	public static ArrayList<Conta> getContas() {
+		return contas;
 	}
 	
+	// ADICIONAR UM CADASTRO NA LISTA 
+	
+	static public void adicionar(Conta l) {
+		contas.add(l);
+	}
+	
+	// LITAR O SALDO 
+	
+	public void listar() {
+		for (Conta l: contas) {
+			l.imprimirInfosComuns();
+		}
+	}
 	
 
 }

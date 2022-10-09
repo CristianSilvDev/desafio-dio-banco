@@ -2,23 +2,20 @@ package entities;
 
 public abstract class Conta implements lConta {
 	
-	protected static int AGENCIA_PADRAO = 1;
-	private static int SEQUENCIAL = 1;
-	
-	protected int agencia;
-	protected int numero;
-	protected double saldo;
-	protected float cpf;
+	private int agencia;
+	private int numero;
+	private double saldo;
 	private Cliente cliente;
 	
-	public Conta(Cliente cliente) {
-		this.agencia = Conta.AGENCIA_PADRAO;
-		this.numero = SEQUENCIAL++;
+	public Conta(int agencia, int numero, double saldo, Cliente cliente) {
+		super();
+		this.agencia = agencia;
+		this.numero = numero;
+		this.saldo = saldo;
 		this.cliente = cliente;
-		this.cpf = cpf;
 	}
 
-	
+
 	public int getAgencia() {
 		return agencia;
 	}
@@ -52,7 +49,7 @@ public abstract class Conta implements lConta {
 		contaDestino.depositar(valor);
 	}
 	
-	protected void imprimirInfosComuns() {
+	public void imprimirInfosComuns() {
 	System.out.println(String.format("Cliente: %s", this.cliente.getNome()));
 	System.out.println(String.format("Agência: %d", this.agencia));
 	System.out.println(String.format("Número: %d", this.numero));
