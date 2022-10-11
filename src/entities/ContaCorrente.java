@@ -1,11 +1,13 @@
 package entities;
 
-public class ContaCorrente extends Conta {
+import java.util.Date;
 
-	public ContaCorrente(Cliente cliente) {
-		super(cliente);
+public class ContaCorrente extends Conta {
+	public ContaCorrente(String nome, float cpf, Date dataNascimento) {
+		super(nome, cpf, dataNascimento);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	public void imprimirExtrato() {
 		System.out.println("===Extrato Conta Corrente ===");
 		super.imprimirInfosComuns();

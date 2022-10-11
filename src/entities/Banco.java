@@ -17,13 +17,17 @@ public class Banco {
 		contas.add(l);
 	}
 	
-	// LITAR O SALDO 
+	// LISTAR O SALDO 
 	
-	public void listar() {
+	public static String listar() {
+		String saida = "";
+		int i = 1;
 		for (Conta l: contas) {
-			l.imprimirInfosComuns();
+			saida += "\n==== CONTA Nº " + (i++) + " ====\n";
+			saida += l.imprimirInfosComuns() + "\n";
 		}
+		
+		return saida;
 	}
-	
 
 }

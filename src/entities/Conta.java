@@ -1,18 +1,20 @@
 package entities;
 
-public abstract class Conta implements lConta {
+import java.util.Date;
+
+public abstract class Conta extends Cliente implements lConta {
 	
+	protected static int AGENCIA_PADRAO = 1;
+	private static int SEQUENCIAL = 1;
+
 	private int agencia;
 	private int numero;
 	private double saldo;
-	private Cliente cliente;
 	
-	public Conta(int agencia, int numero, double saldo, Cliente cliente) {
-		super();
-		this.agencia = agencia;
-		this.numero = numero;
-		this.saldo = saldo;
-		this.cliente = cliente;
+	public Conta(String nome, float cpf, Date dataNascimento) {
+		super(nome, cpf, dataNascimento);
+		this.agencia = Conta.AGENCIA_PADRAO;
+		this.numero = SEQUENCIAL++;
 	}
 
 
@@ -33,7 +35,6 @@ public abstract class Conta implements lConta {
 	@Override
 	public void sacar(double valor) {
 		saldo -= valor;
-		
 	}
 
 
@@ -49,11 +50,15 @@ public abstract class Conta implements lConta {
 		contaDestino.depositar(valor);
 	}
 	
-	public void imprimirInfosComuns() {
-	System.out.println(String.format("Cliente: %s", this.cliente.getNome()));
-	System.out.println(String.format("Agência: %d", this.agencia));
-	System.out.println(String.format("Número: %d", this.numero));
-	System.out.println(String.format("Saldo: %.2f", this.saldo));
+	public String imprimirInfosComuns() {
+		return "Cliente: " + this.getNome() + "\nAgência: "
+				+ this.getAgencia() + "\nNúmero: "
+				+ this.numero + this.saldo;
+		
+	//System.out.println(String.format("Cliente: %s", this.getNome()));
+	//System.out.println(String.format("Agência: %d", this.agencia));
+	//System.out.println(String.format("Número: %d", this.numero));
+	//System.out.println(String.format("Saldo: %.2f", this.saldo));
 }
 	
 	

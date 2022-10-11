@@ -3,7 +3,7 @@ package entities;
 import java.util.Date;
 
 public class Cliente {
-	protected String nome;
+	private String nome;
 	private float cpf;
 	private Date dataNascimento;
 	

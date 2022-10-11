@@ -6,7 +6,9 @@ import java.util.Date;
 import java.util.Scanner;
 import entities.Banco;
 import entities.Cliente;
+import entities.Conta;
 import entities.ContaCorrente;
+import entities.ContaPoupanca;
 
 public class Program {
 	public static void main(String[] args) throws ParseException {
@@ -19,6 +21,7 @@ public class Program {
 		System.out.println("=======================================");
 		
 		int menu;
+		Banco ContaCorrente;
 		do {
 			exibirMenu();
 			menu = sc.nextInt();
@@ -36,18 +39,29 @@ public class Program {
 				System.out.print("DATA DE NASCIMENTO: ");
 				Date data = sdf.parse(sc.next());
 				System.out.println("CONTA CORRENTE OU CONTA POUPANÇA? [C/P]");
-					char conta = sc.next().charAt(0);
-					if (conta == 'S') {
-						Cliente cc = (Cliente) new ContaCorrente(new Cliente(nome, cpf, data));
+					char tipoDeConta = sc.next().toUpperCase().charAt(0);
+					if (tipoDeConta == 'S') {
+						
+						//CRIAR OBJETO DA CLASSE
+						Conta cc = new ContaCorrente(nome, cpf, data);
+						
+						//GUARDAR NO ARRAY
+						Banco.adicionar(cc);
 					} else {
-						if (conta == 'P') {
-							Cliente cp = (Cliente) new ContaCorrente(new Cliente(nome, cpf, data));	
+						if (tipoDeConta == 'P') {
+							// CRIAR OBJETO DA CLASSE
+							Conta cp = new ContaPoupanca(nome, cpf, data);
+							
+							//GUARDAR NO ARRAY
+							Banco.adicionar(cp);
 						}
 					}
 				break;
 				
 			//VERIFICAR O SALDO NA CONTA DO CLIENTE
 			case 2:
+				System.out.println("====> LISTAGEM DE CONTAS ");
+                System.out.println(Banco.listar());
 				
 				break;
 				

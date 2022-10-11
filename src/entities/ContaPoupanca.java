@@ -1,9 +1,12 @@
 package entities;
 
+import java.util.Date;
+
 public class ContaPoupanca extends Conta {
-	
-	public ContaPoupanca(Cliente cliente) {
-		super(Cliente);
+
+	public ContaPoupanca(String nome, float cpf, Date dataNascimento) {
+		super(nome, cpf, dataNascimento);
+		// TODO Auto-generated constructor stub
 	}
 
 	public void imprimirExtrato() {
