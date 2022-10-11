@@ -86,7 +86,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("=====> SEJA BEM-VINDO(A) AO BANCO DIGITAL. QUAL OPERAÇÃO DESEJA REALIZAR? ");
 		System.out.println("[1] - CADASTRAR");
-		System.out.println("[2] - SALDO");
+		System.out.println("[2] - LISTAGEM DE CONTA");
 		System.out.println("[3] - DEPÓSITO");
 		System.out.println("[4] - TRANSFERÊNCIA");
 		System.out.println("[5] - EXCLUIR CONTA");
