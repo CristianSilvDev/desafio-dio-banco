@@ -4,8 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
 import entities.Banco;
-import entities.Cliente;
 import entities.Conta;
 import entities.ContaCorrente;
 import entities.ContaPoupanca;
@@ -25,7 +25,7 @@ public class Program {
 		do {
 			exibirMenu();
 			menu = sc.nextInt();
-
+			Conta objConta;
 			switch (menu) {
 			
 			// CADASTRAR
@@ -58,7 +58,7 @@ public class Program {
 					}
 				break;
 				
-			//VERIFICAR O SALDO NA CONTA DO CLIENTE
+			//VERIFICAR A LISTA DE CONTAS EXISTENTES 
 			case 2:
 				System.out.println("====> LISTAGEM DE CONTAS ");
                 System.out.println(Banco.listar());
@@ -67,9 +67,21 @@ public class Program {
 				
 			// PARA REALIZAR DEPÓSITO
 			case 3:
+				System.out.println("====> DEPÓSITO");
+				System.out.println("DIGITE O VALOR DO DEPÓSITO");
+				Double valorDeposito = sc.nextDouble();
+				objConta.depositar(valorDeposito);
+				
+				
 				break;
 				
 			// PARA REALIZAR UMA TRANSFERÊNCIA
+				System.out.println("====> TRANSFERÊNCIA");
+				System.out.println("DIGITE O VALOR DA TRANSFERÊNCIA");
+				Double valorT = sc.nextDouble();
+				
+				objConta.transferir(valorT, contaDestino);
+				
 			case 4:
 				break;
 				
