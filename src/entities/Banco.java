@@ -20,7 +20,7 @@ public class Banco {
 	// LISTAR O SALDO 
 	
 	public static String listar() {
-		saida = "";
+		String saida = "";
 		int i = 1;
 		for (Conta l: contas) {
 			saida += "\n==== CONTA Nº " + (i++) + " ====\n";
@@ -29,5 +29,14 @@ public class Banco {
 		
 		return saida;
 	}
-
+	
+	public static String saldo() {
+		String saldo = "";
+		int i = 1;
+		for (Conta l: contas) {
+			saldo += "\n==== CONTA Nº " + (i++) + " ====\n";
+			saldo += l.getSaldo() + "===\n";
+		}
+		return saldo;
+	}
 }
