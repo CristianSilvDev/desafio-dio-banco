@@ -25,7 +25,7 @@ public class Program {
 		do {
 			exibirMenu();
 			menu = sc.nextInt();
-			Conta objConta;
+			Conta objConta = null;
 			switch (menu) {
 			
 			// CADASTRAR
@@ -61,7 +61,7 @@ public class Program {
 			//VERIFICAR A LISTA DE CONTAS EXISTENTES 
 			case 2:
 				System.out.println("====> LISTAGEM DE CONTAS ");
-                System.out.println(Banco.listar());
+				System.out.println(Banco.listar());
 				
 				break;
 				
@@ -75,14 +75,13 @@ public class Program {
 				
 				break;
 				
-			// PARA REALIZAR UMA TRANSFERÊNCIA
-				System.out.println("====> TRANSFERÊNCIA");
-				System.out.println("DIGITE O VALOR DA TRANSFERÊNCIA");
-				Double valorT = sc.nextDouble();
-				
-				objConta.transferir(valorT, contaDestino);
-				
 			case 4:
+				// PARA REALIZAR UM SAQUE
+				System.out.println("====> SAQUE");
+				System.out.println("DIGITE O VALOR DO SAQUE");
+				
+				Double valorS = sc.nextDouble();
+				objConta.sacar(valorS);
 				break;
 				
 			// PARA O CLIENTE EXCLUIR CONTA
@@ -100,7 +99,7 @@ public class Program {
 		System.out.println("[1] - CADASTRAR");
 		System.out.println("[2] - LISTAGEM DE CONTA");
 		System.out.println("[3] - DEPÓSITO");
-		System.out.println("[4] - TRANSFERÊNCIA");
+		System.out.println("[4] - SAQUE");
 		System.out.println("[5] - EXCLUIR CONTA");
 		System.out.println("[6] - SAIR");
 	}

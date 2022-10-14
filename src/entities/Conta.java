@@ -50,15 +50,11 @@ public abstract class Conta extends Cliente implements lConta {
 		contaDestino.depositar(valor);
 	}
 	
-	public String imprimirInfosComuns() {
-		return "Cliente: " + this.getNome() + "\nAgência: "
-				+ this.getAgencia() + "\nNúmero: "
-				+ this.numero + this.saldo;
-		
-	//System.out.println(String.format("Cliente: %s", this.getNome()));
-	//System.out.println(String.format("Agência: %d", this.agencia));
-	//System.out.println(String.format("Número: %d", this.numero));
-	//System.out.println(String.format("Saldo: %.2f", this.saldo));
+	public void imprimirInfosComuns() {
+	System.out.println(String.format("Cliente: %s", this.getNome()));
+	System.out.println(String.format("Agência: %d", this.agencia));
+	System.out.println(String.format("Número: %d", this.numero));
+	System.out.println(String.format("Saldo: %.2f", this.saldo));
 }
 	
 	
