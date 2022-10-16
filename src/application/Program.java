@@ -9,6 +9,7 @@ import entities.Banco;
 import entities.Conta;
 import entities.ContaCorrente;
 import entities.ContaPoupanca;
+import entities.lConta;
 
 public class Program {
 	public static void main(String[] args) throws ParseException {
@@ -87,6 +88,11 @@ public class Program {
 			// PARA O CLIENTE EXCLUIR CONTA
 			case 5:
 				break;
+				
+			case 6:
+				System.out.println("====> SALDO");
+				System.out.println("SALDO R$ " + Banco.saldo());
+				break;
 			default:
 				System.out.println("OPÇÃO DE MENU INVÁLIDA");
 			}
@@ -101,6 +107,7 @@ public class Program {
 		System.out.println("[3] - DEPÓSITO");
 		System.out.println("[4] - SAQUE");
 		System.out.println("[5] - EXCLUIR CONTA");
+		System.out.println("[6] - SALDO");
 		System.out.println("[6] - SAIR");
 	}
 }
