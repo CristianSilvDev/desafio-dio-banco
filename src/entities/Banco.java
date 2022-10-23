@@ -39,4 +39,15 @@ public class Banco {
 		}
 		return saldo;
 	}
+	
+	
+	public static boolean remover(String nome) {
+		for (Conta l: contas) {
+			if(l.getNome().equalsIgnoreCase(nome)) {
+				contas.remove(1);
+				return true;
+			}
+		}
+		return false;
+	}
 }

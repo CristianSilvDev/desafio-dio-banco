@@ -71,9 +71,14 @@ public class Program {
 			// PARA REALIZAR DEPÓSITO
 			case 3:
 				System.out.println("====> DEPÓSITO");
-				System.out.println("DIGITE O VALOR DO DEPÓSITO");
+				System.out.println("DIGITE O VALOR DO DEPÓSITO R$");
 				Double valorDeposito = sc.nextDouble();
-				objConta.depositar(valorDeposito);
+				if (Banco.getContas() == null) {
+						objConta.depositar(valorDeposito);
+						System.out.println("DEPOSITO FEITO COM SUCESSO");
+				} else {
+					System.out.println("NÃO HÁ CONTAS CADASTRADA NO SISTEMA");
+				}
 				
 				
 				break;
@@ -89,6 +94,21 @@ public class Program {
 				
 			// PARA O CLIENTE EXCLUIR CONTA
 			case 5:
+				
+				System.out.println("====> EXCLUIR CONTA");
+				System.out.println("DIGITE O NOME DA CONTA");
+				String nome1 = sc.next();
+				
+				if (! (Banco.getContas().isEmpty())) {
+					if (Banco.remover(nome1)) {
+						System.out.println("LIVRO REMOVIDO COM SUCESSO");
+					} else {
+						System.out.println("NOME NÃO ENCONTRADO");
+					}
+				} else {
+					System.out.println("NÃO HÁ CONTAS CADASTRADA NO SISTEMA");
+				}
+				
 				break;
 				
 			case 6:
