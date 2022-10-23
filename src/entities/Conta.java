@@ -14,7 +14,7 @@ public abstract class Conta extends Cliente implements lConta {
 	public Conta(String nome, float cpf, Date dataNascimento) {
 		super(nome, cpf, dataNascimento);
 		this.agencia = Conta.AGENCIA_PADRAO;
-		this.numero = SEQUENCIAL++;
+		this.numero = 1+1;
 	}
 
 
@@ -50,11 +50,13 @@ public abstract class Conta extends Cliente implements lConta {
 		contaDestino.depositar(valor);
 	}
 	
-	public void imprimirInfosComuns() {
-	System.out.println(String.format("Cliente: %s", this.getNome()));
-	System.out.println(String.format("Agência: %d", this.agencia));
-	System.out.println(String.format("Número: %d", this.numero));
-	System.out.println(String.format("Saldo: %.2f", this.saldo));
+	public String imprimirInfosComuns() {
+		
+		return "Cliente: " + this.getNome() + "\nAgência: " + this.agencia + "\nNúmero: " + this.numero + String.format("%.2f", this.saldo);
+	//System.out.println(String.format("Cliente: ", this.getNome()));
+	//System.out.println(String.format("Agência: ", this.agencia));
+	//System.out.println(String.format("Número: ", this.numero));
+	//System.out.printf(String.format("Saldo: %.2f", this.saldo));
 }
 	
 	

@@ -62,8 +62,10 @@ public class Program {
 			//VERIFICAR A LISTA DE CONTAS EXISTENTES 
 			case 2:
 				System.out.println("====> LISTAGEM DE CONTAS ");
-				System.out.println(Banco.listar());
-				
+				if (! Banco.getContas().isEmpty()) {
+					System.out.println(Banco.listar());
+				} else
+					System.out.println("NÃO HÁ CONTA CADASTRADA EM NOSSO SISTEMA");
 				break;
 				
 			// PARA REALIZAR DEPÓSITO
@@ -93,10 +95,13 @@ public class Program {
 				System.out.println("====> SALDO");
 				System.out.println("SALDO R$ " + Banco.saldo());
 				break;
+			case 7:
+				System.out.println("ENCERRANDO A SESSÃO");
+				break;
 			default:
 				System.out.println("OPÇÃO DE MENU INVÁLIDA");
 			}
-		} while(menu!=6);
+		} while(menu!=7);
 }
 
 	static void exibirMenu() throws ParseException {
@@ -108,6 +113,6 @@ public class Program {
 		System.out.println("[4] - SAQUE");
 		System.out.println("[5] - EXCLUIR CONTA");
 		System.out.println("[6] - SALDO");
-		System.out.println("[6] - SAIR");
+		System.out.println("[7] - SAIR");
 	}
 }
